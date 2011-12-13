@@ -20,11 +20,11 @@ case $url in
 esac
 
 if [ $get -eq 0 ]; then
-    curl $url | $cmd
+    curl -s $url | $cmd
 else
     tmpdir=/tmp/getter-$(date +%s)
     mkdir $tmpdir
-    curl $url > $tmpdir/archive
+    curl -s $url > $tmpdir/archive
     $cmd $tmpdir/archive
     rm -f $tmpdir/archive
     rmdir $tmpdir
