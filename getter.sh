@@ -13,6 +13,8 @@ url=$1
 get=0 # Download the file first; don't pipe it
 
 case $url in
+    *.gz) cmd="gunzip";;
+    *.bz2) cmd="bunzip2";;
     *.tar.gz|*.tgz) cmd="tar xvz";;
     *.tar.bz2) cmd="tar xvj";;
     *.zip) get=1; cmd="unzip";;
